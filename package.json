@@ -1,0 +1,20 @@
+{
+  "name": "moviescope",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build --emptyOutDir",
+    "lint": "eslint *.js src/**/*.js",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@vitejs/devtools": "^0.8.3",
+    "@vitejs/devtools-rolldown": "^0.8.3",
+    "@vitejs/devtools-vite": "^0.8.3",
+    "vite": "^8.4.0"
+  }
+}
