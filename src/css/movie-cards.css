@@ -1,0 +1,50 @@
+/* Responsive styles for movie cards */
+
+.movie-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.movie-card {
+  overflow: hidden;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-info {
+  padding: 1rem;
+}
+
+.movie-info h2 {
+  font-size: var(--font-size-md);
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive styles for movie cards */
+
+.watchlist-button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+
+  background-color: var(--color-primary);
+  color: white;
+
+  border: none;
+  border-radius: 0.4rem;
+
+  cursor: pointer;
+}
