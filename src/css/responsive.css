@@ -45,3 +45,23 @@
     padding: 1rem;
   }
 }
+
+
+/* Responsive styles for movie cards */
+
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .movie-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Responsive styles for movie cards */
