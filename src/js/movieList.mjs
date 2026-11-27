@@ -1,31 +1,45 @@
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 function movieCardTemplate(movie) {
+  const releaseYear = movie.release_date
+    ? movie.release_date.slice(0, 4)
+    : "N/A";
+
+  const rating = movie.vote_average
+    ? movie.vote_average.toFixed(1)
+    : "N/A";
+
+  const poster = movie.poster_path
+    ? `${IMAGE_BASE_URL}${movie.poster_path}`
+    : "/images/no-poster.svg";
+
   return `
     <article class="movie-card">
       <img
-        src="${IMAGE_BASE_URL}${movie.poster_path}"
-        alt="Poster for ${movie.title}"
         class="movie-poster"
+        src="${poster}"
+        alt="Poster for ${movie.title}"
         loading="lazy"
       />
 
       <div class="movie-info">
-        <h2>${movie.title}</h2>
+        <h2 class="movie-title">${movie.title}</h2>
 
-        <p>
-          ${movie.release_date ? movie.release_date.slice(0, 4) : "Unknown year"}
-        </p>
+        <div class="movie-meta">
+          <span>${releaseYear}</span>
+          <span>⭐ ${rating}</span>
+        </div>
 
-        <p>⭐ ${movie.vote_average.toFixed(1)}</p>
-
-        <a href="/movie-details.html?id=${movie.id}">
+        <a
+          class="details-button"
+          href="/movie-details.html?id=${movie.id}"
+        >
           View Details
         </a>
 
         <button
-          type="button"
           class="watchlist-button"
+          type="button"
           data-movie-id="${movie.id}"
         >
           + Watchlist
@@ -38,7 +52,9 @@ function movieCardTemplate(movie) {
 export function renderMovieList(movies) {
   const movieList = document.querySelector("#movie-list");
 
-  if (!movieList) return;
+  if (!movieList) {
+    return;
+  }
 
   movieList.innerHTML = movies
     .map(movieCardTemplate)
